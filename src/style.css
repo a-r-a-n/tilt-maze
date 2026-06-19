@@ -1,0 +1,108 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #1a1a2e;
+  font-family: system-ui, sans-serif;
+  color: #ffffff;
+}
+
+canvas {
+  display: block;
+  position: absolute;
+  inset: 0;
+}
+
+/* ── Overlay ─────────────────────────────────────────────────────────────── */
+#overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+#overlay.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.overlay-card {
+  background: #111122;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  padding: 36px 44px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  max-width: 380px;
+  width: 90%;
+}
+
+#overlay-title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+#overlay-msg {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.5;
+}
+
+#level-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.dot.done    { background: #00cc88; }
+.dot.current { background: #ffffff; }
+
+#overlay-btn {
+  margin-top: 4px;
+  padding: 10px 24px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: #00cc88;
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#overlay-btn:hover { background: #00ffaa; }
+
+/* ── HUD ─────────────────────────────────────────────────────────────────── */
+#hud {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  z-index: 5;
+  pointer-events: none;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.4);
+}
